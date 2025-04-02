@@ -1,20 +1,22 @@
 using UnityEngine;
 
+
+//INHERITANCE
 public abstract class Shape : MonoBehaviour
 {
+    // ENCAPSULATION
     public string ShapeName { get; protected set; }
     public Color ShapeColor { get; protected set; }
 
-    // Abstract method for polymorphism
+    // ABSTRACTION
     public abstract void DisplayText();
+    public abstract void Move();
 
-    // Common behavior for all shapes
     protected void OnMouseDown()
     {
         DisplayText();
     }
 
-    // Method to set the color in the material
     protected void ApplyColor()
     {
         Renderer renderer = GetComponent<Renderer>();
@@ -22,5 +24,10 @@ public abstract class Shape : MonoBehaviour
         {
             renderer.material.color = ShapeColor;
         }
+    }
+
+    private void Update()
+    {
+        Move();
     }
 }

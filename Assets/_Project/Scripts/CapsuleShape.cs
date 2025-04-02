@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// POLYMORPHISM
 public class CapsuleShape : Shape
 {
     private void Start()
@@ -11,6 +12,11 @@ public class CapsuleShape : Shape
 
     public override void DisplayText()
     {
-        Debug.Log($"You clicked a {ShapeName}!");
+        Debug.Log($"You clicked on a {ShapeName}!");
+    }
+
+    public override void Move()
+    {
+        transform.Translate(Vector3.up * Mathf.Sin(Time.time) * Time.deltaTime);
     }
 }
