@@ -4,7 +4,7 @@ using UnityEngine;
 public class CylinderShape : Shape
 {
     private Vector3 startPos;
-    private float moveRange = 2f;
+    private float moveRange = 5f;
 
     private void Start()
     {
@@ -23,6 +23,11 @@ public class CylinderShape : Shape
     {
         transform.position = startPos + Vector3.right * Mathf.PingPong(Time.time * 2, moveRange)
             - Vector3.right * (moveRange / 2);
+    }
+
+    protected override void AddScore()
+    {
+        GameManager.Instance.AddScore(5);
     }
 }
 

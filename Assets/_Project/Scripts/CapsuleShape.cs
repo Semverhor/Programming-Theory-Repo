@@ -17,6 +17,11 @@ public class CapsuleShape : Shape
 
     public override void Move()
     {
-        transform.Translate(Vector3.up * Mathf.Sin(Time.time) * Time.deltaTime);
+        transform.Translate(Vector3.up * Mathf.Sin(Time.time) * Time.deltaTime * 3f);
+    }
+
+    protected override void AddScore()
+    {
+        GameManager.Instance.AddScore(10);
     }
 }

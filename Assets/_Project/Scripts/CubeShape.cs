@@ -4,8 +4,8 @@ using UnityEngine;
 public class CubeShape : Shape
 {
     private Vector3 targetPosition;
-    private float moveSpeed = 2f;
-    private float changeInterval = 2f;
+    private float moveSpeed = 5f;
+    private float changeInterval = 1f;
     private float timer = 0f;
 
     private void Start()
@@ -40,5 +40,10 @@ public class CubeShape : Shape
         float randomY = Random.Range(-5f, 5f);
         float randomZ = Random.Range(0f, 5f);
         targetPosition = new Vector3(randomX, randomY, randomZ);
+    }
+
+    protected override void AddScore()
+    {
+        GameManager.Instance.AddScore(15);
     }
 }

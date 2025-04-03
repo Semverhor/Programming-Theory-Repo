@@ -11,10 +11,12 @@ public abstract class Shape : MonoBehaviour
     // ABSTRACTION
     public abstract void DisplayText();
     public abstract void Move();
+    protected abstract void AddScore();
 
     protected void OnMouseDown()
     {
         DisplayText();
+        AddScore();
     }
 
     protected void ApplyColor()
